@@ -135,4 +135,4 @@ Academic project only. Not legal or compliance advice.
 
 **Built for:** VARA-licensed VASP compliance roles, Big 4 risk advisory, fintech AML analytics in the UAE.
 
-**Contact:** [LinkedIn] | [Your Email]
+**Contact:** [LinkedIn](https://www.linkedin.com/in/zeb-unneen-57a275275) | zebunneen004@gmail.com
