@@ -1,0 +1,4 @@
+Model,PR_AUC,Precision_10pct,Recall_10pct,FP_per_TP_10pct,McNemar_p_value
+A: Dataset Only,0.1498,0.219,0.416,3.6,N/A
+B: Graph Only,0.0622,0.09,0.172,10.1,N/A
+C: Combined,0.149,0.22,0.418,3.6,0.94
