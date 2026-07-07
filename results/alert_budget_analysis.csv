@@ -1,0 +1,5 @@
+Budget,Alerts,True Positives,False Positives,False Negatives,Precision,Recall,F1-Score,FP per TP,Lift over Random
+1%,99,99,0,425,100.0%,18.9%,0.318,0.0,19.0x
+5%,498,307,191,217,61.6%,58.6%,0.601,0.6,11.7x
+10%,997,329,668,195,33.0%,62.8%,0.433,2.0,6.3x
+20%,1994,357,1637,167,17.9%,68.1%,0.284,4.6,3.4x

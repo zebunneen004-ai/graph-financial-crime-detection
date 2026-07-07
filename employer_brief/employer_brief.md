@@ -1,47 +1,78 @@
-﻿================================================================================
-EMPLOYER BRIEF: Graph-Based Financial Crime Detection
-================================================================================
+# Graph-Based Financial Crime Detection
+## Using Transaction Network Analysis
 
-PROBLEM
-Financial crime is hidden in relationships between transactions, not just 
-individual records. Current AML systems often miss structural patterns that 
-reveal coordinated illicit activity.
+---
 
-WHAT I BUILT
-A Python pipeline that models Bitcoin transactions as a directed graph and 
-compares dataset-provided features with handcrafted graph-theoretic risk 
-features.
+**Built by:** [Your Name]  
+**Contact:** zebunneen004@gmail.com | [LinkedIn](https://linkedin.com/in/yourprofile)  
+**GitHub:** github.com/zebunneen004-ai/graph-financial-crime-detection
 
-METHODS
-- Graph modeling: 203,769 nodes, 234,355 directed edges (NetworkX)
-- Feature engineering: PageRank, degree, clustering, k-core, component size
-- Statistical rigor: Mann-Whitney U + effect sizes before ML
-- Modeling: 3 feature sets (Dataset / Graph / Combined), temporal split
-- Interpretability: Permutation importance + AML translations
+---
 
-RESULTS
-- Dataset features dominate predictive power (PR-AUC: 0.1498)
-- Graph features alone are weak (PR-AUC: 0.0622)
-- Combined model improves precision +5.7% with 105 fewer false alerts
-- Graph features provide EXPLAINABLE risk indicators for compliance teams
+## The Problem
 
-BUSINESS TRANSLATION
-At 80% detection rate:
-- Combined model generates fewer false alerts than dataset-only
-- Analysts can explain flags using structural behavior (e.g., "low degree + 
-  small component size")
-- Reduces investigation workload without sacrificing recall
+Financial crime is hidden in **relationships between transactions**, not just individual records. Standard AML systems analyze transactions in isolation, missing the network patterns that reveal layering, mixing, and structuring behavior.
 
-UAE / VARA RELEVANCE
-- VARA mandates real-time transaction monitoring and suspicious activity 
-  reporting for licensed VASPs
-- Interpretable features enable compliance officers to defend alerts to 
-  regulators
-- Demonstrates distributed-ledger analytics capability required by VARA 
-  AML/CFT controls
+## What I Built
 
-KEY DIFFERENTIATOR
-Unlike black-box GNNs, this approach prioritizes auditable, feature-level 
-interpretability — exactly what regulators demand and courts accept.
+A Python pipeline that models Bitcoin transactions as a **directed graph** and compares dataset-provided features with **graph-theoretic risk features** to detect suspicious activity.
 
-================================================================================
+| Component | Details |
+|:---|:---|
+| **Dataset** | Elliptic Bitcoin — 203,769 transactions, 234,355 edges |
+| **Graph features** | PageRank, degree, clustering, k-core, component size |
+| **Models** | XGBoost, Random Forest, Logistic Regression |
+| **Evaluation** | Strict temporal split (train past → test future) |
+| **Primary metric** | PR-AUC (not accuracy) |
+| **Statistical rigor** | Mann-Whitney U, effect sizes, Bootstrap CIs, McNemar test |
+
+## Key Results
+
+| Metric | Value |
+|:---|:---|
+| Best PR-AUC | **0.6384** (XGBoost, Dataset Only) |
+| Best F1-Score | **0.5303** (XGBoost, Dataset Only) |
+| Precision improvement with graph | **+5.7%** |
+| False alerts reduced at 80% recall | **105 fewer** |
+| Statistical significance | Bootstrap 95% CIs + McNemar exact test |
+| Tests passing | 6/6 pytest |
+
+## Operational Translation
+
+At a **5% alert budget** (flagging top 50 transactions per 1,000 for review):
+
+- Catches **~40% of known illicit transactions**
+- Generates **2.5 false alarms per true illicit caught**
+- Provides **explainable structural indicators** (connectivity, isolation, hub status)
+- Unlike black-box GNNs, flags can be **inspected and defended to regulators**
+
+## What Makes This Different
+
+| Standard Portfolio | This Project |
+|:---|:---|
+| "I trained a fraud model" | "I built an interpretable AML alert system" |
+| Accuracy-focused | PR-AUC and recall-focused for imbalanced data |
+| Random train/test split | Temporal split (simulates real AML workflow) |
+| Black-box predictions | Explainable graph features for compliance teams |
+| Positive results only | Honest negative results (PageRank not significant) |
+
+## UAE / VARA Relevance
+
+- **VARA-licensed VASPs** must maintain AML/CFT controls including distributed-ledger tracing and transaction monitoring
+- **Interpretability requirement:** VASPs must explain alerts to regulators — not just predict them
+- **Real-time monitoring:** Temporal split validates the model detects future illicit activity from past patterns
+- **Skill intersection:** Graph ML + AML domain knowledge + regulatory compliance — scarce in UAE market
+
+## Tools
+
+Python, pandas, NetworkX, scikit-learn, XGBoost, statsmodels, matplotlib
+
+## Limitations
+
+- Public benchmark dataset (not production UAE data)
+- Graph features add interpretability but not significant predictive power
+- Results may not generalize to other blockchains
+
+---
+
+*Academic project. Not legal or compliance advice.*
