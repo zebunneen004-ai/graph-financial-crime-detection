@@ -51,6 +51,14 @@ SHAP describes the fitted model’s output decomposition. It does not establish 
 
 Unknown means that no supervised ground-truth label is supplied. Unknown observations are retained for topology calculations and excluded from supervised evaluation.
 
+## Dataset Source and Citation
+
+This project uses the Elliptic Data Set introduced in:
+
+> Weber, M., Domeniconi, G., Chen, J., Weidele, D. K. I., Bellei, C., Robinson, T., and Leiserson, C. E. (2019). “Anti-Money Laundering in Bitcoin: Experimenting with Graph Convolutional Networks for Financial Forensics.” arXiv:1908.02591. https://doi.org/10.48550/arXiv.1908.02591
+
+The dataset is not redistributed by this repository. Obtain it from the original provider and place the three unchanged CSV files in `data/raw/`. The original Elliptic release announcement is available at https://www.elliptic.co/media-center/elliptic-releases-bitcoin-transactions-data.
+
 ## Research Question
 
 **Primary:** Do additional interpretable node-level topological features improve illicit-transaction classification beyond the Elliptic dataset's supplied local and one-hop aggregated attributes under chronological evaluation?
@@ -88,9 +96,9 @@ The final holdout does not influence feature-set choice, default-versus-tuned se
 | Random Forest | Combined | 0.6408 | 0.960 | 0.553 | 0.702 |
 | Random Forest | Dataset Only | 0.6388 | 0.944 | 0.550 | 0.695 |
 | Random Forest | Graph Only | 0.0628 | 0.067 | 0.777 | 0.123 |
-| Xgboost | Combined | 0.6418 | 0.934 | 0.565 | 0.704 |
-| Xgboost | Dataset Only | 0.6474 | 0.928 | 0.567 | 0.704 |
-| Xgboost | Graph Only | 0.0613 | 0.066 | 0.290 | 0.108 |
+| XGBoost | Combined | 0.6418 | 0.934 | 0.565 | 0.704 |
+| XGBoost | Dataset Only | 0.6474 | 0.928 | 0.567 | 0.704 |
+| XGBoost | Graph Only | 0.0613 | 0.066 | 0.290 | 0.108 |
 
 Threshold-dependent metrics use thresholds selected on the operating-selection block. Accuracy is not used as the lead metric.
 
@@ -151,7 +159,9 @@ Future work should examine causally available transaction-time features, nested 
 
 ## Reproducibility
 
-This final run used Python **3.14.6**. Create an isolated environment using an available compatible Python installation:
+The definitive analytical run used Python **3.14.6**.
+
+Compatible installation:
 
 ```bat
 py -m venv .venv
@@ -160,6 +170,17 @@ python -m pip install -r requirements.txt
 run.bat
 ```
 
+Exact reference-environment installation:
+
+```bat
+py -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements-lock.txt
+run.bat
+```
+
+`requirements.txt` contains bounded compatibility ranges. `requirements-lock.txt` is generated from the definitive local environment and records its resolved packages.
+
 Cross-platform execution:
 
 ```bash
@@ -167,6 +188,10 @@ python src/corrected_master_pipeline.py --config config/config.yaml --overwrite
 ```
 
 All authoritative outputs are written under `results/final`, `figures/final` and `models/final`. `results/final/provenance_manifest.csv` records output lineage and the Git commit when the repository was committed before execution.
+
+## Software Quality
+
+GitHub Actions tests supported Python versions, Dependabot monitors Python and workflow dependencies, critical Ruff checks run in CI, and coverage is reported for the unit suite. The raw-data integration test remains optional because the dataset is not redistributed.
 
 ## Repository Structure
 

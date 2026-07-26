@@ -235,7 +235,7 @@ def runtime_metadata(config: dict[str, Any]) -> dict[str, Any]:
         "machine": platform.machine(),
         "processor": platform.processor(),
         "git_commit": git_commit(),
-        "config_path": config.get("_config_path"),
+        "config_path": relative_to_root(Path(config["_config_path"])) if config.get("_config_path") else "",
         "packages": package_versions(
             [
                 "pandas",

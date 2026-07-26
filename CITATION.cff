@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this research implementation, please cite this repository and the original Elliptic dataset paper."
+title: "Transaction Network Analysis for Financial Crime Detection and AML Alert Prioritization"
+type: software
+authors:
+  - name: "zebunneen004-ai"
+version: "2.0.2"
+date-released: "2026-07-26"
+repository-code: "https://github.com/zebunneen004-ai/graph-financial-crime-detection"
+url: "https://github.com/zebunneen004-ai/graph-financial-crime-detection"
+license: MIT
+keywords:
+  - anti-money-laundering
+  - financial-crime
+  - bitcoin
+  - graph-analytics
+  - machine-learning
+  - model-calibration
+  - alert-prioritization
+references:
+  - type: article
+    title: "Anti-Money Laundering in Bitcoin: Experimenting with Graph Convolutional Networks for Financial Forensics"
+    authors:
+      - family-names: Weber
+        given-names: Mark
+      - family-names: Domeniconi
+        given-names: Giacomo
+      - family-names: Chen
+        given-names: Jie
+      - family-names: Weidele
+        given-names: Daniel Karl I.
+      - family-names: Bellei
+        given-names: Claudio
+      - family-names: Robinson
+        given-names: Tom
+      - family-names: Leiserson
+        given-names: Charles E.
+    year: 2019
+    doi: 10.48550/arXiv.1908.02591
