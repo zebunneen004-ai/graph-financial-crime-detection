@@ -1,0 +1,19 @@
+{
+  "completed_utc": "2026-07-26T10:20:48+00:00",
+  "run_id": "run_20260726T095610Z",
+  "runtime_seconds": 1478.764429599978,
+  "stages": [
+    "data_loading",
+    "graph_construction",
+    "graph_features",
+    "statistics",
+    "modeling",
+    "tuning",
+    "calibration",
+    "alert_budget",
+    "explainability",
+    "reporting"
+  ],
+  "started_utc": "2026-07-26T09:56:10+00:00",
+  "status": "success"
+}

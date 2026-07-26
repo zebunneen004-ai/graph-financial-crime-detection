@@ -1,0 +1,9 @@
+{
+  "feature_set": "dataset predictors + five primary topology variables + weak_component_size",
+  "final_test_delta_vs_tuned_primary_combined": 0.0034298524155096377,
+  "final_test_pr_auc": 0.6459547245072172,
+  "interpretation": "weak_component_size is treated as a snapshot-level time-step proxy, not transaction-specific isolation.",
+  "operating_delta_vs_tuned_primary_combined": 0.0015554922098646173,
+  "operating_pr_auc": 0.8795072673760299,
+  "role": "sensitivity analysis only; not eligible for primary operational selection"
+}

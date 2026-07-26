@@ -1,3 +1,0 @@
-model,pr_auc,improvement_pct
-XGBoost (default),0.6384,0.0
-XGBoost (tuned),0.6490587118161887,1.6695977155684076

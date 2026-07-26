@@ -1,0 +1,78 @@
+{
+  "best_combined_candidate": "tuned_combined",
+  "best_combined_model_artifact": "models\\final\\xgboost_tuned_combined.joblib",
+  "best_dataset_candidate": "tuned_dataset_only",
+  "best_dataset_model_artifact": "models\\final\\xgboost_tuned_dataset_only.joblib",
+  "best_parameters": {
+    "combined": {
+      "colsample_bytree": 0.85,
+      "gamma": 0.0,
+      "learning_rate": 0.15,
+      "max_depth": 8,
+      "min_child_weight": 10,
+      "n_estimators": 300,
+      "reg_alpha": 1.0,
+      "reg_lambda": 2.0,
+      "subsample": 0.85
+    },
+    "combined_with_snapshot_size": {
+      "colsample_bytree": 0.85,
+      "gamma": 0.0,
+      "learning_rate": 0.15,
+      "max_depth": 8,
+      "min_child_weight": 10,
+      "n_estimators": 300,
+      "reg_alpha": 1.0,
+      "reg_lambda": 2.0,
+      "subsample": 0.85
+    },
+    "dataset_only": {
+      "colsample_bytree": 0.85,
+      "gamma": 0.0,
+      "learning_rate": 0.15,
+      "max_depth": 8,
+      "min_child_weight": 10,
+      "n_estimators": 300,
+      "reg_alpha": 1.0,
+      "reg_lambda": 2.0,
+      "subsample": 0.85
+    }
+  },
+  "calibration_population": "labeled time steps 31-35",
+  "candidate_cv_results": {
+    "default_combined": {
+      "mean_cv_pr_auc": 0.9542896842421693,
+      "std_cv_pr_auc": 0.06095379198979079
+    },
+    "default_dataset_only": {
+      "mean_cv_pr_auc": 0.9546487103743185,
+      "std_cv_pr_auc": 0.060953670163622284
+    },
+    "tuned_combined": {
+      "mean_cv_pr_auc": 0.9579423075869011,
+      "std_cv_pr_auc": 0.05761516235689658
+    },
+    "tuned_combined_with_snapshot_size": {
+      "mean_cv_pr_auc": 0.9586831263151177,
+      "std_cv_pr_auc": 0.05622613200409294
+    },
+    "tuned_dataset_only": {
+      "mean_cv_pr_auc": 0.9578679395535246,
+      "std_cv_pr_auc": 0.056367023431218834
+    }
+  },
+  "combined_variant_reason": "Tuned candidate selected because temporal-CV PR-AUC improved by +0.0037, meeting the configured 0.0020 minimum tuning gain.",
+  "dataset_variant_reason": "Tuned candidate selected because temporal-CV PR-AUC improved by +0.0032, meeting the configured 0.0020 minimum tuning gain.",
+  "default_vs_tuned_rule": "tuning must improve mean temporal-CV PR-AUC by at least 0.002",
+  "feature_selection_reason": "Dataset-only selected for parsimony because the best combined candidate improved mean temporal-CV PR-AUC by only +0.0001, below the 0.0100 margin.",
+  "feature_set_rule": "combined must exceed dataset-only mean temporal-CV PR-AUC by at least 0.01",
+  "final_test_not_used_for_selection": true,
+  "final_test_population": "labeled time steps 41-49",
+  "model_selection_population": "expanding-window temporal cross-validation within labeled time steps 1-30",
+  "operating_selection_population": "labeled time steps 36-40",
+  "selected_candidate_name": "tuned_dataset_only",
+  "selected_feature_set": "dataset_only",
+  "selected_model_artifact": "models\\final\\xgboost_tuned_dataset_only.joblib",
+  "selected_model_family": "xgboost",
+  "selected_model_variant": "tuned"
+}

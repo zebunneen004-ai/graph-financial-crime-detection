@@ -1,0 +1,9 @@
+{
+  "calibrated_test_brier_score": 0.02850860883474469,
+  "discrimination_note": "Calibration evaluates probability agreement and is separate from ranking discrimination. It is not expected to improve PR-AUC.",
+  "evaluation_population": "labeled final-test time steps 41-49",
+  "fit_population": "labeled calibration time steps 31-35 only",
+  "method": "sigmoid / Platt-style logistic calibration",
+  "raw_test_brier_score": 0.03472133353352547,
+  "test_prevalence": 0.05254186303018149
+}

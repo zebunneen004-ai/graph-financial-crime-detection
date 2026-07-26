@@ -1,78 +1,23 @@
-# Graph-Based Financial Crime Detection
-## Using Transaction Network Analysis
+# Transaction Network Analysis for Financial Crime Detection
 
----
+## Purpose
+Evaluated whether five interpretable topology variables add predictive value beyond the Elliptic benchmark's 165 supplied transaction and one-hop aggregate predictors.
 
-**Built by:** [Your Name]  
-**Contact:** zebunneen004@gmail.com | [LinkedIn](https://linkedin.com/in/yourprofile)  
-**GitHub:** github.com/zebunneen004-ai/graph-financial-crime-detection
+## Research design
+- 203,769 transaction nodes and 234,355 directed payment-flow edges
+- All unknown-labeled nodes retained for topology; 46,564 labeled observations used for supervised metrics
+- Model selection by expanding-window temporal CV within time steps 1–30
+- Dedicated calibration block 31–35, operating-selection block 36–40 and untouched test block 41–49
+- Complete nine-model default ablation, default-versus-tuned XGBoost comparison, paired PR-AUC inference, calibration and alert-workload analysis
 
----
+## Main result
+The selected operational candidate was **tuned dataset only**, with final-test PR-AUC **0.6422**. The best combined-minus-best-dataset-only final-test ΔPR-AUC was **+0.0004**. Small or negative results are reported directly rather than rebranded as improvements.
 
-## The Problem
+## Operational analysis
+A **5%** alert budget was selected on the dedicated operating block and applied unchanged to the final labeled holdout. It is an experiment-specific workload trade-off, not a universal AML policy.
 
-Financial crime is hidden in **relationships between transactions**, not just individual records. Standard AML systems analyze transactions in isolation, missing the network patterns that reveal layering, mixing, and structuring behavior.
+## Relevance
+The project demonstrates temporal validation, transaction-network context, probability calibration, explainability, reproducibility, provenance and analyst-workload measurement relevant to AML, VASP risk, fraud analytics and model governance.
 
-## What I Built
-
-A Python pipeline that models Bitcoin transactions as a **directed graph** and compares dataset-provided features with **graph-theoretic risk features** to detect suspicious activity.
-
-| Component | Details |
-|:---|:---|
-| **Dataset** | Elliptic Bitcoin — 203,769 transactions, 234,355 edges |
-| **Graph features** | PageRank, degree, clustering, k-core, component size |
-| **Models** | XGBoost, Random Forest, Logistic Regression |
-| **Evaluation** | Strict temporal split (train past → test future) |
-| **Primary metric** | PR-AUC (not accuracy) |
-| **Statistical rigor** | Mann-Whitney U, effect sizes, Bootstrap CIs, McNemar test |
-
-## Key Results
-
-| Metric | Value |
-|:---|:---|
-| Best PR-AUC | **0.6384** (XGBoost, Dataset Only) |
-| Best F1-Score | **0.5303** (XGBoost, Dataset Only) |
-| Precision improvement with graph | **+5.7%** |
-| False alerts reduced at 80% recall | **105 fewer** |
-| Statistical significance | Bootstrap 95% CIs + McNemar exact test |
-| Tests passing | 6/6 pytest |
-
-## Operational Translation
-
-At a **5% alert budget** (flagging top 50 transactions per 1,000 for review):
-
-- Catches **~40% of known illicit transactions**
-- Generates **2.5 false alarms per true illicit caught**
-- Provides **explainable structural indicators** (connectivity, isolation, hub status)
-- Unlike black-box GNNs, flags can be **inspected and defended to regulators**
-
-## What Makes This Different
-
-| Standard Portfolio | This Project |
-|:---|:---|
-| "I trained a fraud model" | "I built an interpretable AML alert system" |
-| Accuracy-focused | PR-AUC and recall-focused for imbalanced data |
-| Random train/test split | Temporal split (simulates real AML workflow) |
-| Black-box predictions | Explainable graph features for compliance teams |
-| Positive results only | Honest negative results (PageRank not significant) |
-
-## UAE / VARA Relevance
-
-- **VARA-licensed VASPs** must maintain AML/CFT controls including distributed-ledger tracing and transaction monitoring
-- **Interpretability requirement:** VASPs must explain alerts to regulators — not just predict them
-- **Real-time monitoring:** Temporal split validates the model detects future illicit activity from past patterns
-- **Skill intersection:** Graph ML + AML domain knowledge + regulatory compliance — scarce in UAE market
-
-## Tools
-
-Python, pandas, NetworkX, scikit-learn, XGBoost, statsmodels, matplotlib
-
-## Limitations
-
-- Public benchmark dataset (not production UAE data)
-- Graph features add interpretability but not significant predictive power
-- Results may not generalize to other blockchains
-
----
-
-*Academic project. Not legal or compliance advice.*
+## Boundaries
+Public Bitcoin benchmark; not UAE production data; not a compliance determination; not real-time; does not replace investigators or MLRO judgment.

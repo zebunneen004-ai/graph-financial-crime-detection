@@ -1,0 +1,19 @@
+{
+  "combined_candidate": "tuned_combined",
+  "comparison": "tuned_combined minus tuned_dataset_only",
+  "confidence_level": 0.95,
+  "dataset_candidate": "tuned_dataset_only",
+  "interpretation": "A confidence interval containing zero means the paired analysis did not detect a statistically reliable improvement. It does not prove the models are identical or that graph features can never help.",
+  "paired_bootstrap_confidence_interval": [
+    -0.002208349371660362,
+    0.002789725400871917
+  ],
+  "paired_bootstrap_repetitions_retained": 2000,
+  "point_delta_pr_auc": 0.00035767105905293306,
+  "practical_margin_pr_auc": 0.01,
+  "time_step_block_bootstrap_confidence_interval": [
+    -0.00252080178988158,
+    0.0034390312622945185
+  ],
+  "time_step_block_bootstrap_repetitions_retained": 2000
+}

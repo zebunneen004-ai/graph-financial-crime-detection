@@ -1,0 +1,15 @@
+{
+  "comparison_note": "Permutation importance measures test-performance degradation after shuffling. SHAP decomposes model outputs. The methods answer different questions and need not rank variables identically.",
+  "evaluation_split": "labeled final test time steps 41-49",
+  "feature_set": "165 supplied predictors plus five primary topology features",
+  "highest_ranked_graph_feature": {
+    "feature": "pagerank_relative",
+    "mean_pr_auc_decrease": 0.0002763065844367807,
+    "rank": 56,
+    "standard_deviation": 0.00013086868361082904
+  },
+  "model": "best combined XGBoost candidate selected by temporal CV",
+  "number_of_repeats": 5,
+  "scoring_metric": "average_precision / PR-AUC",
+  "seed": 42
+}

@@ -1,0 +1,27 @@
+{
+  "config_path": "C:\\Users\\zebun\\Downloads\\GRAPH_PROJECT_CORRECTED\\config\\config.yaml",
+  "git_commit": "3b4218f7fbc4e363d384f525e4240a9407d2e465",
+  "machine": "AMD64",
+  "packages": {
+    "PyYAML": "6.0.3",
+    "joblib": "1.5.3",
+    "matplotlib": "3.11.1",
+    "networkx": "3.6.1",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "pyarrow": "24.0.0",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.0",
+    "shap": "0.52.0",
+    "statsmodels": "0.14.6",
+    "tabulate": "0.10.0",
+    "xgboost": "3.3.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "run": {
+    "run_id": "run_20260726T095610Z",
+    "timestamp_utc": "2026-07-26T09:56:10+00:00"
+  }
+}

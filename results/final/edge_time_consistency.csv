@@ -1,0 +1,4 @@
+edge_type,count,percentage_of_edges
+same_time_step,234355,1.0
+cross_time_step,0,0.0
+self_loop,0,0.0

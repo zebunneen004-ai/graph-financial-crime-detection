@@ -1,31 +1,46 @@
-# Python
-__pycache__/
-*.py[cod]
-*.class
-*.so
-.Python
-
-# Virtual environments
+﻿# Python environments
+.venv/
 venv/
 env/
-ENV/
 
-# Jupyter
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
 .ipynb_checkpoints/
-*.ipynb_checkpoints
 
-# IDE
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Raw and processed datasets
+data/raw/
+data/processed/
+data/*.csv
+*.parquet
+
+# Generated model artifacts
+models/
+*.pkl
+*.joblib
+
+# Runtime and archived material
+logs/
+archive/
+results/archive/
+figures/archive/
+
+# Temporary packages and exports
+*.zip
+*.7z
+*.tar
+*.gz
+
+# IDE and operating-system files
 .vscode/
 .idea/
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Data (keep raw/ structure but not large files if needed)
-# data/raw/*.csv  # Uncomment if CSVs are too large for GitHub
-
-# Results (optional - keep if you want recruiters to see them)
-# results/*.csv
-# figures/*.png
-data/
+desktop.ini

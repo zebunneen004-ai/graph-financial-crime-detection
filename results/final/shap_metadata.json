@@ -1,0 +1,6 @@
+{
+  "interpretation_guardrail": "SHAP describes the fitted model's output decomposition. It does not establish criminal intent, prove suspicious activity, or independently justify a suspicious transaction report.",
+  "model_output_space": "raw XGBoost margin / log-odds-like model output",
+  "sample_size": 2000,
+  "top_feature": "feature_53"
+}
