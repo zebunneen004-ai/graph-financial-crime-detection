@@ -8,6 +8,38 @@ This reproducible research implementation evaluates whether five additional inte
 
 The operational candidate selected using expanding-window temporal cross-validation within time steps 1–30 was **tuned dataset only**. Its final labeled-holdout PR-AUC was **0.6422**. The best combined-minus-best-dataset-only final-test difference was **+0.0004 PR-AUC**, with a paired bootstrap 95% interval of **[-0.0022, +0.0028]**. A confidence interval containing zero means the paired analysis did not detect a statistically reliable improvement. It does not prove the models are identical or that graph features can never help.
 
+## Selected Results
+
+### Complete default-model ablation
+
+![Default model ablation](figures/final/default_model_ablation.png)
+
+The supplied Elliptic predictors drive the strongest discrimination. The five additional topology variables do not materially improve final-holdout PR-AUC.
+
+### Incremental graph-feature inference
+
+![Paired bootstrap difference](figures/final/paired_delta_bootstrap.png)
+
+The tuned combined-minus-dataset-only PR-AUC difference is approximately +0.0004. Both observation-level and time-step bootstrap intervals include zero.
+
+### Probability calibration
+
+![Calibration curve](figures/final/calibration_curve.png)
+
+Sigmoid calibration was fitted only on time steps 31–35 and evaluated on the untouched final holdout.
+
+### Alert-prioritization trade-off
+
+![Final-test alert-budget analysis](figures/final/alert_budget_final_test.png)
+
+A 5% alert budget was selected on time steps 36–40 and applied unchanged to the final labeled holdout.
+
+### Model explainability
+
+![SHAP summary](figures/final/shap_summary.png)
+
+SHAP describes the fitted model’s output decomposition. It does not establish criminal intent or independently justify a suspicious transaction report.
+
 ## Dataset
 
 - 203,769 transaction nodes
@@ -158,3 +190,7 @@ flowchart TD
 ## Disclaimer
 
 This repository is a reproducible research implementation. It is not a production AML platform, not real-time transaction monitoring, not legal advice and not evidence that any transaction or person committed a crime.
+
+## License
+
+The project code is released under the MIT License. The Elliptic dataset is not redistributed and remains subject to its original terms.
